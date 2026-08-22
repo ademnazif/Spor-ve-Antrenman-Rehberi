@@ -1,24 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Spor_Porjesi</RootNamespace>
+  </PropertyGroup>
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();
+</Project>
