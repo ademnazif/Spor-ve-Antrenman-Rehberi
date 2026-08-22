@@ -11,7 +11,7 @@ namespace Spor_Porjesi.Pages
         public string? TavsiyeBaslik { get; set; }
         public string? TavsiyeDetay { get; set; }
 
-        // Beslenme & Makro Alanları
+        // Eklenen Beslenme & Makro Alanları
         public int GunlukKalori { get; set; }
         public int ProteinGram { get; set; }
         public int KarbonhidratGram { get; set; }
@@ -28,7 +28,7 @@ namespace Spor_Porjesi.Pages
             {
                 TavsiyeBaslik = "Kategori: Yüksek Kalori İhtiyacı / Hacim (Bulk)";
                 TavsiyeDetay = "Amaç: Vücudu antrenmana alıştırmak, temel kuvvet ve hareket tekniğini geliştirmek. Haftada 3 gün Full-Body, 2-3 set x 10-15 tekrar. Squat, lunge, bench press, row, lat pulldown.";
-                
+
                 GunlukKalori = SecilenKilo * 42;
                 ProteinGram = (int)(SecilenKilo * 2.0);
                 KarbonhidratGram = (int)(SecilenKilo * 5.5);
