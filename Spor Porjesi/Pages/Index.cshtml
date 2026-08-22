@@ -1,0 +1,88 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Spor & Beslenme Rehberi";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #f8fafc;
+        min-height: 100vh;
+    }
+    .custom-card {
+        background: rgba(30, 41, 59, 0.85);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+    }
+    .hero-img {
+        max-height: 280px;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .btn-action {
+        background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        border: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+    }
+    .select-dark {
+        background-color: #334155;
+        color: #fff;
+        border: 1px solid #475569;
+    }
+    .select-dark:focus {
+        background-color: #334155;
+        color: #fff;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25);
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop"
+                 alt="Fitness Training"
+                 class="img-fluid w-100 hero-img mb-4" />
+
+            <h1 class="display-6 fw-bold text-white mb-2">Hedefine Uygun Rotayı Çiz 🎯</h1>
+            <p class="text-secondary mb-4">Mevcut kilonuzu seçin, antrenman ve beslenme stratejinizi saniyeler içinde öğrenin.</p>
+
+            <div class="card custom-card p-4 mb-4 text-start shadow-lg">
+                <form method="post">
+                    <div class="mb-4">
+                        <label for="kiloSecimi" class="form-label text-light fw-semibold">Mevcut Kilonuz:</label>
+                        <select asp-for="SecilenKilo" class="form-select form-select-lg select-dark" id="kiloSecimi">
+                            @for (int kg = 45; kg <= 120; kg += 5)
+                            {
+                                <option value="@kg">@kg kg</option>
+                            }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-action text-white btn-lg w-100 fw-bold py-3">
+                        Stratejiyi Oluştur 🚀
+                    </button>
+                </form>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.TavsiyeBaslik))
+            {
+                <div class="card custom-card border-0 shadow-lg text-start mt-4 animate__animated animate__fadeIn">
+                    <div class="card-header bg-transparent border-bottom border-secondary py-3">
+                        <h4 class="card-title text-info mb-0 fw-bold">📌 @Model.TavsiyeBaslik</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="card-text text-light fs-5 lh-base">@Model.TavsiyeDetay</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
